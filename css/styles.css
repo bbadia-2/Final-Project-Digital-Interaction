@@ -1,0 +1,854 @@
+:root {
+  --verd-fosc: #005b13;
+  --verd-clar: #f3f8f0;
+  --blanc: #ffffff;
+  --gris-fosc: #30332d;
+  --verd-hover: #a8cd91;
+}
+
+/* Base */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--gris-fosc);
+  background-color: var(--blanc);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Tipografies */
+
+.text-hero,
+.text-page-title,
+.text-section-title,
+.text-card-title {
+  font-family: "Lora", serif;
+}
+
+.text-hero,
+.text-page-title {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.text-section-title,
+.text-card-title {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-hero {
+  font-size: 64px;
+}
+
+.text-page-title {
+  font-size: 48px;
+}
+
+.text-section-title {
+  font-size: 32px;
+}
+
+.text-card-title {
+  font-size: 24px;
+}
+
+.text-menu-button,
+.button,
+.nav .contact-button {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.text-secondary {
+  font-size: 14px;
+}
+
+/* Amplada compartida */
+
+.presentation,
+.services,
+.footer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 16px 64px;
+  background-color: var(--blanc);
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.logo img {
+  width: 112px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-left: auto;
+}
+
+.nav a {
+  position: relative;
+  display: inline-block;
+  color: var(--gris-fosc);
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.nav a:not(.contact-button)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--verd-fosc);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.nav a:not(.contact-button):hover {
+  transform: translateY(-2px);
+  color: var(--verd-fosc);
+}
+
+.nav a:not(.contact-button):hover::after {
+  opacity: 1;
+}
+
+/* Botons */
+
+.button,
+.nav .contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: 28px;
+  text-decoration: none;
+  color: var(--blanc);
+  background-color: var(--verd-fosc);
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.button:hover,
+.nav .contact-button:hover {
+  background-color: var(--verd-hover);
+  color: var(--verd-fosc);
+}
+
+/* Fletxes dels botons i de l’enllaç de tarifes */
+
+.button::after,
+.nav .contact-button::after,
+.text-link::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background-color: currentColor;
+  mask: url("../images/fletxa-dreta.svg") center / contain no-repeat;
+}
+
+/* Selector d’idioma */
+
+.language-select {
+  color: var(--verd-fosc);
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.language-select:focus {
+  outline: none;
+}
+
+/* Hero */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 668px;
+  padding: 104px 96px 24px;
+
+  background-image:
+    linear-gradient(
+      to right,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0.85) 25%,
+      rgba(255, 255, 255, 0) 65%
+    ),
+    url("../images/hero-img.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  max-width: 850px;
+}
+
+.hero .text-secondary,
+.hero h1,
+.presentation-content .text-secondary,
+.presentation-content h2,
+.services h2,
+.service-card h3,
+.footer-text h2 {
+  color: var(--verd-fosc);
+}
+
+.discover-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  gap: 8px;
+  margin-top: 80px;
+  color: var(--gris-fosc);
+  text-decoration: none;
+}
+
+.discover-more img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.15s ease;
+}
+
+.discover-more:hover img {
+  transform: translateY(3px);
+}
+
+/* Presentació */
+
+.presentation {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  min-height: 540px;
+  padding: 34px 72px;
+  overflow: hidden;
+}
+
+.presentation-images {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  flex: 0 1 584px;
+  min-width: 0;
+  padding-bottom: 52px;
+}
+
+.presentation-photo,
+.service-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.presentation-photo {
+  aspect-ratio: 280 / 420;
+  border-radius: 8px;
+  background-image: url("../images/presentacio-img-1.png");
+}
+
+.presentation-photo-second {
+  transform: translateY(52px);
+  background-image: url("../images/presentacio-img-2.png");
+}
+
+.presentation-flag {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 26px);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: var(--blanc);
+}
+
+.presentation-flag img {
+  width: 48px;
+  height: 48px;
+}
+
+.presentation-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  flex: 0 1 648px;
+  min-width: 0;
+  min-height: 430px;
+}
+
+.presentation-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Enllaç de tarifes */
+
+.text-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 4px;
+  color: var(--verd-fosc);
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.text-link::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 6px;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.text-link:hover {
+  transform: scale(1.03);
+}
+
+.text-link:hover::before {
+  opacity: 1;
+}
+
+/* Decoracions */
+
+.presentation-curves,
+.footer-curves,
+.footer-trajectory {
+  position: absolute;
+  max-width: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.presentation-curves {
+  bottom: -27px;
+  right: -93px;
+  width: 472px;
+  height: 394px;
+}
+
+.footer-curves {
+  top: -35px;
+  left: -20px;
+  width: 310px;
+  height: auto;
+}
+
+.footer-trajectory {
+  top: 64px;
+  right: 56px;
+  width: 300px;
+  height: 120px;
+}
+
+/* Instal·lacions i serveis */
+
+.services {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 779px;
+  padding: 24px 72px 118px;
+}
+
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 73px;
+  z-index: -1;
+  background-color: var(--verd-clar);
+}
+
+.services-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--verd-fosc) var(--verd-clar);
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 0 0 324px;
+  min-height: 536px;
+  padding: 16px;
+  border: 1px solid var(--verd-fosc);
+  border-radius: 12px;
+  background-color: var(--blanc);
+}
+
+.service-image {
+  height: 360px;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.service-card:nth-child(1) .service-image {
+  background-image: url("../images/camp.png");
+}
+
+.service-card:nth-child(2) .service-image {
+  background-image: url("../images/practica.png");
+}
+
+.service-card:nth-child(3) .service-image {
+  background-image: url("../images/classe.png");
+}
+
+.service-card:nth-child(4) .service-image {
+  background-image: url("../images/lloguer.png");
+}
+
+.service-card:nth-child(5) .service-image {
+  background-image: url("../images/bar.png");
+}
+
+/* Footer */
+
+.footer-contact {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 159px;
+  padding: 35.5px 224px 35.5px 271px;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 88px;
+}
+
+.footer-contact .button {
+  flex-shrink: 0;
+}
+
+.footer-bottom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  min-height: 136px;
+  padding: 12px 72px;
+  border-top: 1px solid var(--verd-fosc);
+  background-color: var(--blanc);
+}
+
+.footer-logo {
+  flex: 0 0 112px;
+}
+
+.footer-logo img {
+  width: 80px;
+}
+
+.footer-info {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex: 1;
+  min-width: 0;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  min-height: 64px;
+  padding-left: 40px;
+  border-left: 1px solid var(--verd-fosc);
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--verd-fosc);
+  text-decoration: underline;
+  white-space: nowrap;
+  transition: transform 0.15s ease;
+}
+
+.footer-socials a img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-2px);
+}
+
+.footer-legal {
+  width: 100px;
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--gris-fosc);
+  text-align: right;
+  text-decoration: none;
+}
+
+.footer-legal:hover {
+  text-decoration: underline;
+}
+
+/* Contenidor de navegació i idioma */
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-left: auto;
+}
+
+/* Controls que només apareixen al mòbil */
+
+.menu-toggle,
+.menu-heading {
+  display: none;
+}
+
+.menu-toggle,
+.menu-close {
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle img,
+.menu-close img {
+  width: 24px;
+  height: 24px;
+}
+
+[data-traduccio="presentationTitle"] {
+  white-space: pre-line;
+}
+
+/* Mòbil */
+
+@media (max-width: 768px) {
+  /* Header */
+
+  .header {
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 24px;
+  }
+
+  .logo img {
+    width: 64px;
+  }
+
+  .menu-toggle,
+  .menu-close {
+    display: inline-flex;
+  }
+
+  .header-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin: 0;
+    padding: 24px;
+    overflow-y: auto;
+    background-color: var(--blanc);
+  }
+
+  .header-menu.is-open {
+    display: flex;
+  }
+
+  .menu-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 44px;
+  }
+
+  .menu-heading h2 {
+    font-family: "Lora", serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--verd-fosc);
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 0 4px;
+  }
+
+  .nav .contact-button,
+  .nav .contact-button:hover {
+    justify-content: flex-start;
+    padding: 0 4px;
+    border-radius: 0;
+    color: var(--gris-fosc);
+    background-color: transparent;
+  }
+
+  .nav .contact-button::after {
+    display: none;
+  }
+
+  .header-menu .language-select {
+    align-self: flex-start;
+    min-height: 44px;
+    margin-top: 12px;
+  }
+
+  /* Hero */
+
+  .hero {
+    min-height: 560px;
+    padding: 64px 24px 24px;
+  }
+
+  .hero .text-hero {
+    font-size: 40px;
+  }
+
+  .hero .text-body {
+    font-size: 16px;
+  }
+
+  /* Presentació */
+
+  .presentation {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    min-height: auto;
+    padding: 36px 24px;
+  }
+
+  .presentation-images {
+    flex: auto;
+    padding-bottom: 36px;
+  }
+
+  .presentation-photo {
+    aspect-ratio: 159 / 264;
+  }
+
+  .presentation-photo-second {
+    transform: translateY(36px);
+  }
+
+  .presentation-flag {
+    top: calc(50% - 20px);
+    width: 72px;
+    height: 72px;
+  }
+
+  .presentation-flag img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .presentation-content {
+    flex: auto;
+    min-height: auto;
+    gap: 24px;
+  }
+
+  .presentation-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .presentation-curves,
+  .footer-curves,
+  .footer-trajectory {
+    display: none;
+  }
+
+  /* Serveis */
+
+  .services {
+    min-height: 774px;
+    gap: 20px;
+    padding: 36px 24px;
+  }
+
+  .services::before {
+    inset: 0;
+    opacity: 0.14;
+  }
+
+  .services h2,
+  .footer-text h2 {
+    font-size: 26px;
+  }
+
+  .services-list {
+    gap: 16px;
+    min-height: 580px;
+    align-items: flex-start;
+  }
+
+  .service-card {
+    min-height: 527px;
+  }
+
+  .service-card h3 {
+    font-size: 22px;
+  }
+
+  .services .text-body,
+  .footer-text p {
+    font-size: 16px;
+  }
+
+  /* Footer */
+
+  .footer-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 36px 24px;
+  }
+
+  .footer-text {
+    min-height: auto;
+    gap: 16px;
+  }
+
+  .footer-bottom {
+    gap: 24px;
+    min-height: 184px;
+    padding: 24px;
+  }
+
+  .footer-logo {
+    flex-basis: 88px;
+  }
+
+  .footer-logo img {
+    width: 72px;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .footer-socials {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    min-height: auto;
+    padding: 0;
+    border: 0;
+  }
+
+  .footer-legal {
+    width: 100%;
+    margin: 0;
+  }
+}
